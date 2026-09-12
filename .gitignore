@@ -1,0 +1,59 @@
+# =========================
+# 1. Editor/IDE Files
+# =========================
+.vscode/
+.idea/
+*.suo
+.ntvs
+*.njsproj
+*.sln
+*.sw?
+
+# =========================
+# 2. Operating System Files
+# =========================
+# Windows (Kyunki tu Windows par hai)
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS (Agar kabhi Apple ke laptop par project khola)
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# =========================
+# 3. Web Dev & Node.js
+# =========================
+# Aage chal kar jab tu JS aur Node use karega
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# =========================
+# 4. Build Folders
+# =========================
+# Agar koi tool use kiya code compress karne ke liye
+dist/
+build/
+out/
+
+# =========================
+# 5. Security (Most Important)
+# =========================
+# API keys aur passwords chupane ke liye
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# =========================
+# 6. Logs & Temp Files
+# =========================
+logs/
+*.log
+*.tmp
+*.bak
