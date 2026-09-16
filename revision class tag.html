@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<!-- DOCTYPE -> Batata hai browser ko "ye HTML5 document hai". Hamesha sabse upar likho -->
+<html lang="en">
+<!-- <html> -> Poore page ka root/parent tag, sab kuch iske andar aata hai -->
+
+<head>
+  <!-- <head> -> Page ki "backstage info", user ko dikhti nahi, browser/Google ke liye hoti hai -->
+
+  <meta charset="UTF-8">
+  <!-- <meta charset> -> Language/special symbols sahi dikhane ke liye -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta viewport> -> Mobile me page sahi size me dikhane ke liye (responsive) -->
+
+  <meta name="description" content="HTML tags ka poora notes">
+  <!-- <meta name="description"> -> Google search me page ke neeche ye line dikhti hai -->
+
+  <title>All HTML Tags - Yaad Karne Wali Notes</title>
+  <!-- <title> -> Browser tab ka naam -->
+
+  <style>
+    /* <style> -> CSS likhne ki jagah, andar hi design set kar sakte ho */
+    body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
+    table, th, td { border: 1px solid #333; border-collapse: collapse; padding: 6px; }
+  </style>
+
+  <link rel="icon" href="favicon.ico">
+  <!-- <link> -> Bahar ki file (CSS file, icon) ko is page se jodta hai -->
+
+</head>
+
+<body>
+  <!-- <body> -> Page ka woh part jo user ACTUAL me dekhta hai -->
+
+  <!-- =========================================================
+       1) HEADINGS - Title / Sub-title ke liye
+  ========================================================== -->
+  <h1>H1 - Sabse bada heading (page me 1 baar use karo, SEO ke liye important)</h1>
+  <h2>H2 - Uske niche wala heading</h2>
+  <h3>H3</h3>
+  <h4>H4</h4>
+  <h5>H5</h5>
+  <h6>H6 - Sabse chota heading</h6>
+
+  <hr>
+  <!-- <hr> -> Horizontal line, ek topic khatam / doosra shuru dikhane ke liye -->
+
+
+  <!-- =========================================================
+       2) TEXT / PARAGRAPH TAGS
+  ========================================================== -->
+  <p>Ye ek <b>paragraph</b> hai. Har normal text para me likhna chahiye.</p>
+  <!-- <p> -> Paragraph, matlab normal text block -->
+
+  <b>Bold Text</b> - <!-- <b> -> Sirf mota (bold) dikhta hai, koi importance meaning nahi -->
+  <strong>Strong Text</strong> <!-- <strong> -> Bold dikhta hai + "important hai" wala meaning bhi deta hai -->
+  <br>
+
+  <i>Italic Text</i> - <!-- <i> -> Sirf tirchha (italic) dikhta hai -->
+  <em>Emphasis Text</em> <!-- <em> -> Italic + "zor de kar bola" wala meaning -->
+  <br>
+
+  <u>Underline Text</u> <!-- <u> -> Neeche line, kam use hota hai (link jaisa lagta hai) -->
+  <br>
+
+  <mark>Highlighted Text</mark> <!-- <mark> -> Peela highlight, important word dikhane ke liye -->
+  <br>
+
+  <small>Chota text</small> <!-- <small> -> Font size chota kar deta hai (T&C wagera me) -->
+  <br>
+
+  <del>Deleted Text</del> <!-- <del> -> Beech me line (strike), purani price/galat cheez dikhane ke liye -->
+  <br>
+
+  <ins>Inserted Text</ins> <!-- <ins> -> Underline, naya add kiya gaya text dikhane ke liye -->
+  <br>
+
+  <abbr title="Hyper Text Markup Language">HTML</abbr>
+  <!-- <abbr> -> Short-form word, hover karne pe full form dikhata hai -->
+  <br>
+
+  <code>let x = 10;</code> <!-- <code> -> Programming code dikhane ka special style -->
+  <br>
+
+  <kbd>Ctrl + C</kbd> <!-- <kbd> -> Keyboard key dikhane ke liye -->
+  <br>
+
+  <samp>File not found</samp> <!-- <samp> -> Computer/program ka output dikhane ke liye -->
+  <br>
+
+  10<sup>2</sup> <!-- <sup> -> Text ko upar chota likhta hai (power/square) -->
+  &nbsp;&nbsp;
+  log<sub>2</sub> <!-- <sub> -> Text ko neeche chota likhta hai (subscript) -->
+  <br>
+
+  Line 1 <br> Line 2
+  <!-- <br> -> Sirf line break, naya paragraph nahi banta -->
+
+  <p>Ye <span style="color:red;">span ke andar red</span> word hai.</p>
+  <!-- <span> -> Line ke BEECH me kisi word ko style karne ke liye (inline container) -->
+
+  <pre>
+  Ye     pre    tag hai
+  spacing bilkul waise dikhti hai jaise likhi hai
+  </pre>
+  <!-- <pre> -> "Preformatted", spaces/line-breaks jaise likhe waise hi dikhte hain -->
+
+  <blockquote cite="https://example.com">
+    Ye ek bada quote hai kisi doosre source se liya gaya
+  </blockquote>
+  <!-- <blockquote> -> Lamba quotation dikhane ke liye, thoda indent ho jata hai -->
+
+  <q>Ye ek chota inline quote hai</q>
+  <!-- <q> -> Chota quote, automatically "quotes" laga deta hai -->
+
+  <address>
+    Email: hellonaman@gmail.com
+  </address>
+  <!-- <address> -> Contact info (email/address) dikhane ke liye -->
+
+  <hr>
+
+
+  <!-- =========================================================
+       3) LISTS
+  ========================================================== -->
+  <h3>Unordered List (bullets)</h3>
+  <ul>
+    <li>Architecture</li>
+    <li>Design</li>
+  </ul>
+  <!-- <ul> -> Bina number ki list (bullet points), <li> -> list ka ek item -->
+
+  <h3>Ordered List (numbering)</h3>
+  <ol>
+    <li>Step 1</li>
+    <li>Step 2</li>
+  </ol>
+  <!-- <ol> -> Number wali list -->
+
+  <h3>Definition List</h3>
+  <dl>
+    <dt>HTTPS</dt>
+    <dd>Hyper Text Transfer Protocol Secure</dd>
+  </dl>
+  <!-- <dl> -> Term aur uska meaning dikhane ke liye, <dt> = term, <dd> = uski definition -->
+
+  <hr>
+
+
+  <!-- =========================================================
+       4) LINKS & MEDIA
+  ========================================================== -->
+  <a href="https://www.google.co.in">Normal Link</a><br>
+  <a href="https://www.google.co.in" target="_blank">Naye Tab me khulne wala link</a><br>
+  <a href="#section2">Same page ke andar jump karne wala link</a>
+  <!-- <a href="..."> -> Link/hyperlink, target="_blank" se naya tab khulta hai -->
+
+  <br><br>
+
+  <img src="https://i.pinimg.com/originals/68/3d/9a/683d9a1a8150ee8b29bfd25d46804605.png" alt="google logo" height="50">
+  <!-- <img> -> Image dikhata hai, alt zaroori hai (image load na ho tuh text dikhega) -->
+
+  <figure>
+    <img src="https://i.pinimg.com/originals/68/3d/9a/683d9a1a8150ee8b29bfd25d46804605.png" alt="logo" height="50">
+    <figcaption>Google Logo</figcaption>
+  </figure>
+  <!-- <figure> + <figcaption> -> Image/diagram ko caption ke saath group karta hai -->
+
+  <video src="movie.mp4" controls width="250"></video>
+  <!-- <video> -> Video play karne ke liye, controls se play/pause button dikhta hai -->
+
+  <audio src="song.mp3" controls></audio>
+  <!-- <audio> -> Audio/music play karne ke liye -->
+
+  <iframe src="https://www.google.com" width="300" height="150"></iframe>
+  <!-- <iframe> -> Ek website ke andar DOOSRI website/video embed karne ke liye (YouTube video isi se aata hai) -->
+
+  <hr>
+
+
+  <!-- =========================================================
+       5) SEMANTIC / LAYOUT TAGS (page ko meaningfully divide karna)
+  ========================================================== -->
+  <header>
+    <h2>Ye Header Hai</h2>
+  </header>
+  <!-- <header> -> Page/section ka top part (logo, title, menu) -->
+
+  <nav>
+    <a href="#">Home</a> | <a href="#">About</a> | <a href="#">Contact</a>
+  </nav>
+  <!-- <nav> -> Navigation menu/links ke liye -->
+
+  <main>
+    <section>
+      <h2>Education Section</h2>
+      <p>Ye section hai</p>
+    </section>
+    <!-- <section> -> Page ke andar ek independent topic block -->
+
+    <article>
+      <h2>Ek Blog Post</h2>
+      <p>Ye article hai, khud me complete content hota hai</p>
+    </article>
+    <!-- <article> -> Standalone content (blog, news, review) -->
+
+    <aside>
+      <p>Related links / side info</p>
+    </aside>
+    <!-- <aside> -> Sidebar jaisa extra/related content -->
+
+    <div class="box">
+      Ye ek div hai - generic container, styling/layout ke liye
+    </div>
+    <!-- <div> -> Sabse zyada use hone wala tag, koi meaning nahi deta bas group karta hai -->
+  </main>
+  <!-- <main> -> Page ka MAIN unique content, ek page me sirf EK baar use hota hai -->
+
+  <footer>
+    <p>Contact us: hellonaman@gmail.com</p>
+  </footer>
+  <!-- <footer> -> Page/section ka bottom part (copyright, contact, links) -->
+
+  <hr>
+
+
+  <!-- =========================================================
+       6) TABLE
+  ========================================================== -->
+  <table border="1">
+    <caption>Student Data</caption>
+    <!-- <caption> -> Table ka title -->
+    <thead>
+      <!-- <thead> -> Table ka header (heading rows) group karta hai -->
+      <tr>
+        <th>Name</th>
+        <th>Roll No</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tbody> -> Table ka main data group karta hai -->
+      <tr>
+        <td>Ayush</td>
+        <td>1245</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <!-- <tfoot> -> Table ka footer (total/summary row) -->
+      <tr>
+        <td>Total</td>
+        <td>1</td>
+      </tr>
+    </tfoot>
+  </table>
+  <!-- <table> = poora table, <tr> = ek row, <th> = heading cell, <td> = normal data cell -->
+
+  <hr>
+
+
+  <!-- =========================================================
+       7) FORM TAGS (Login/Signup page ke liye SABSE IMPORTANT)
+  ========================================================== -->
+  <form action="/action.php" method="post">
+    <!-- <form> -> User se input lene ka container, method="post" = data secure tarike se bheje -->
+
+    <fieldset>
+      <!-- <fieldset> -> Related form fields ko box me group karta hai -->
+      <legend>Login Details</legend>
+      <!-- <legend> -> fieldset ka title -->
+
+      <label for="username">Username:</label>
+      <!-- <label for="id"> -> Input field ka naam, accessibility ke liye zaroori -->
+      <input type="text" id="username" name="username" placeholder="Enter username">
+      <!-- <input type="text"> -> Normal single-line text field -->
+      <br><br>
+
+      <label for="pass">Password:</label>
+      <input type="password" id="pass" name="password" placeholder="Enter password">
+      <!-- <input type="password"> -> Text ki jagah dots/stars dikhata hai (secure) -->
+      <br><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com">
+      <!-- <input type="email"> -> Sirf valid email format check karta hai -->
+      <br><br>
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" min="1" max="100">
+      <!-- <input type="number"> -> Sirf number allow karta hai -->
+      <br><br>
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob">
+      <!-- <input type="date"> -> Calendar se date choose karne ke liye -->
+      <br><br>
+
+      <input type="radio" id="101" name="class" value="X">
+      <label for="101">Class X</label>
+      <input type="radio" id="102" name="class" value="XI">
+      <label for="102">Class XI</label>
+      <!-- <input type="radio"> -> Bahut options me se sirf EK choose karne ke liye (same "name" hona chahiye) -->
+      <br><br>
+
+      <input type="checkbox" id="terms" name="terms">
+      <label for="terms">I agree to terms & conditions</label>
+      <!-- <input type="checkbox"> -> Multiple options select karne ke liye (on/off) -->
+      <br><br>
+
+      <label for="city">City:</label>
+      <select id="city" name="city">
+        <!-- <select> + <option> -> Dropdown list -->
+        <option value="delhi">Delhi</option>
+        <option value="mumbai">Mumbai</option>
+      </select>
+      <br><br>
+
+      <label for="msg">Message:</label><br>
+      <textarea id="msg" name="message" rows="3" placeholder="Write here..."></textarea>
+      <!-- <textarea> -> Multi-line text input (message/bio/address) -->
+      <br><br>
+
+      <label for="resume">Upload Resume:</label>
+      <input type="file" id="resume" name="resume">
+      <!-- <input type="file"> -> File upload karne ke liye -->
+      <br><br>
+
+      <input type="range" id="vol" name="vol" min="0" max="10">
+      <!-- <input type="range"> -> Slider (volume/rating jaisa) -->
+      <br><br>
+
+      <input type="submit" value="Old Style Submit Button">
+      <!-- <input type="submit"> -> Purana style ka submit button -->
+      <button type="submit">Login</button>
+      <!-- <button> -> Naya/flexible button, andar icon+text bhi daal sakte ho -->
+      <button type="reset">Reset</button>
+      <!-- <button type="reset"> -> Form ko clear/reset karta hai -->
+    </fieldset>
+  </form>
+
+  <hr>
+
+
+  <!-- =========================================================
+       8) OTHER USEFUL TAGS
+  ========================================================== -->
+  <details>
+    <summary>Click to see more</summary>
+    <p>Ye hidden content hai jo click karne pe khulta hai</p>
+  </details>
+  <!-- <details> + <summary> -> Bina JavaScript ke expand/collapse box banata hai (FAQ jaisa) -->
+
+  <progress value="70" max="100"></progress>
+  <!-- <progress> -> Progress bar dikhata hai (upload/download %) -->
+
+  <meter value="0.6" min="0" max="1"></meter>
+  <!-- <meter> -> Fixed range ke andar ek value dikhata hai (jaise battery/rating) -->
+
+  <time datetime="2026-09-10">10 September 2026</time>
+  <!-- <time> -> Date/time ko machine-readable format me dikhata hai -->
+
+  <script>
+    // <script> -> JavaScript code likhne/jodne ke liye
+    console.log("Page load ho gaya");
+  </script>
+  <!-- <script> -> Page me interactivity/logic add karne ke liye -->
+
+  <noscript>
+    e:</label>
+      <input type="number" id="age" name="age" min="1" max="100">
+      <!-- <input type="number"> -> Sirf number allow karta hai -->
+      <br><br>
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob">
+      <!-- <input type="date"> -> Calendar se date choose karne ke liye -->
+      <br><br>
+
+      <input type="radio" id="101" name="class" value="X">
+      <label for="101">Class X</label>
+      <input type="radio" id="102" name="class" value="XI">
+      <label for="102">Class XI</label>
+      <!-- <input type="radio"> -> Bahut options me se sirf EK choose karne ke liye (same "name" hona chahiye) -->
+      <br><br>
+
+      <input type="checkbox" id="terms" name="terms">
+      <label for="terms">I agree to terms & conditions</label>
+      <!-- <input type="checkbox"> -> Multiple options select karne ke liye (on/off) -->
+      <br><br>
+
+      <label for="city">City:</label>
+      <select id="city" name="city">
+        <!-- <select> + <option> -> Dropdown list -->
+        <option value="delhi">Delhi</option>
+        <option value="mumbai">Mumbai</option>
+      </select>
+      <br><br>
+
+      <label for="msg">Message:</label><br>
+      <textarea id="msg" name="message" rows="3" placeholder="Write here..."></textarea>
+      <!-- <textarea> -> Multi-line text input (message/bio/address) -->
+      <br><br>
+
+      <label for="resume">Upload Resume:</label>
+      <input type="file" id="resume" name="resume">
+      <!-- <input type="file"> -> File upload karne ke liye -->
+      <br><br>
+
+      <input type="range" id="vol" name="vol" min="0" max="10">
+      <!-- <input type="range"> -> Slider (volume/rating jaisa) -->
+      <br><br>
+
+      <input type="submit" value="Old Style Submit Button">
+      <!-- <input type="submit"> -> Purana style ka submit button -->
+      <button type="submit">Login</button>
+      <!-- <button> -> Naya/flexible button, andar icon+text bhi daal sakte ho -->
+      <button type="reset">Reset</button>
+      <!-- <button type="reset"> -> Form ko clear/reset karta hai -->
+    </fieldset>
+  </form>
+
+  <hr>
+
+
+  <!-- =========================================================
+       8) OTHER USEFUL TAGS
+  ========================================================== -->
+  <details>
+    <summary>Click to see more</summary>
+    <p>Ye hidden content hai jo click karne pe khulta hai</p>
+  </details>
+  <!-- <details> + <summary> -> Bina JavaScript ke expand/collapse box banata hai (FAQ jaisa) -->
+
+  <progress value="70" max="100"></progress>
+  <!-- <progress> -> Progress bar dikhata hai (upload/download %) -->
+
+  <meter value="0.6" min="0" max="1"></meter>
+  <!-- <meter> -> Fixed range ke andar ek value dikhata hai (jaise battery/rating) -->
+
+  <time datetime="2026-09-10">10 September 2026</time>
+  <!-- <time> -> Date/time ko machine-readable format me dikhata hai -->
+
+  <script>
+    // <script> -> JavaScript code likhne/jodne ke liye
+    console.log("Page load ho gaya");
+  </script>
+  <!-- <script> -> Page me interactivity/logic add karne ke liye -->
+
+  <noscript>
+     <p>Aapke browser me JavaScript OFF hai</p>
+  </noscript>
+  <!-- <noscript> -> Agar JS off ho tuh ye message dikhta hai -->
+
+  <!-- =========================================================
+       9) YE TAGS AVOID KARO (purane/deprecated tags)
+  ========================================================== -->
+  <!--
+    <font>     -> Text style ke liye tha, ab CSS use karo
+    <center>   -> Center align ke liye tha, ab CSS "text-align:center" use karo
+    <marquee>  -> Scrolling text ke liye tha, modern web me nahi chalta
+    <blink>    -> Text blink karne ke liye tha, kisi browser me support nahi
+    <big>      -> Font size badha ta tha, CSS use karo
+    <strike>   -> <del> use karo iski jagah
+    <marks>    -> Ye tag exist hi nahi karta, sahi spelling <mark> hai
+  -->
+
+</body>
+</html>
