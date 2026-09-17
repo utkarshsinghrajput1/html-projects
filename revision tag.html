@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!-- DOCTYPE browser ko batata hai ki yeh ek HTML5 document hai -->
+
+<html lang="hi">
+<!-- html root element hai. 'lang="hi"' batata hai ki page ka primary content Hindi/Indian context ke liye hai -->
+
+<head>
+    <!-- head tag ke andar ki information browser aur search engines ke liye hoti hai, yeh page par dikhti nahi hai -->
+    <meta charset="UTF-8">
+    <!-- Yeh character encoding hai taaki text aur special symbols properly display hon -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Yeh line website ko mobile aur tablets par responsive (fit) banati hai -->
+    
+    <title>Ultimate HTML Tags Guide with Comments</title>
+    <!-- Yeh text browser ke tab par dikhai deta hai -->
+
+    <style>
+        /* CSS styling thoda sa space aur structure dene ke liye */
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; }
+        section { margin-bottom: 30px; border-bottom: 1px solid #ccc; padding-bottom: 20px; }
+        table, th, td { border: 1px solid black; border-collapse: collapse; padding: 10px; }
+    </style>
+</head>
+
+<body>
+    <!-- body tag ke andar ka saara content users ko webpage par dikhai deta hai -->
+
+    <!-- ========================================== -->
+    <!-- 1. HEADER SECTION (Semantic Tag) -->
+    <!-- ========================================== -->
+    <header>
+        <h1>HTML Tags Ki Puri Jankari (Heading 1)</h1>
+        <!-- <h1> sabse badi aur mukhya heading hoti hai (pure page par ek hi honi chahiye) -->
+        
+        <p>Is page par aapko lagbhag saare zaroori HTML tags ek sath milenge.</p>
+        
+        <nav>
+            <!-- nav tag navigation links (menu) ko group karne ke liye use hota hai -->
+            <a href="#text-tags">Text Tags</a> | 
+            <a href="#media-tags">Media Tags</a> | 
+            <a href="#list-tags">Lists</a> | 
+            <a href="#table-tags">Tables</a> | 
+            <a href="#form-tags">Forms</a>
+        </nav>
+    </header>
+
+    <hr> <!-- hr (Horizontal Rule) se ek horizontal line banti hai jo content ko alag karti hai -->
+
+    <!-- ========================================== -->
+    <!-- 2. MAIN CONTENT AREA -->
+    <!-- ========================================== -->
+    <main>
+        <!-- main tag page ke primary/unique content ko represent karta hai -->
+
+        <!-- SECTION: TEXT FORMATTING -->
+        <section id="text-tags">
+            <h2>2. Text Formatting Tags (Heading 2)</h2>
+            <!-- h2 se lekar h6 tak sub-headings ke liye use hote hain -->
+            
+            <h3>Choti Heading (Heading 3)</h3>
+
+            <p>Yeh ek normal paragraph (p tag) hai. Iske andar hum text ko format karenge:</p>
+            
+            <p>
+                <b>Yeh text bold hai (b tag)</b><br> <!-- br tag se line break hota hai (naye line se start) -->
+                <strong>Yeh important text hai (strong tag)</strong><br>
+                <i>Yeh text italic hai (i tag)</i><br>
+                <em>Yeh emphasized text hai (em tag)</em><br>
+                <u>Yeh text underlined hai (u tag)</u><br>
+                <mark>Yeh text highlighted hai (mark tag)</mark><br>
+                <small>Yeh text thoda chota dikhega (small tag)</small><br>
+                <del>Yeh deleted text dikhega (strikethrough)</del><br>
+                <ins>Yeh inserted text dikhega</ins>
+            </p>
+
+            <p>Mathematical formula ke liye Subscript: H<sub>2</sub>O (sub tag)</p>
+            <p>Scientific/Exponent ke liye Superscript: E = mc<sup>2</sup> (sup tag)</p>
+
+            <!-- Code aur Preformatted Text -->
+            <p>Program ka code dikhane ke liye: <code>HTML is easy</code></p>
+            
+            <pre>
+                pre tag ke andar jaisa aap spacing 
+                aur lines doge, browser bilkul 
+                waisa hi display karega.
+            </pre>
+        </section>
+
+
+        <!-- SECTION: MEDIA TAGS -->
+        <section id="media-tags">
+            <h2>3. Media Aur Link Tags</h2>
+
+            <!-- Hyperlink -->
+            <p>Kisi dusri website par jaane ke liye anchor tag use karein: 
+                <a href="https://google.com" target="_blank">Google par jayein</a>
+                <!-- target="_blank" se link naye tab mein khulta hai -->
+            </p>
+
+            <!-- Image Tag -->
+            <p>Image insert karne ke liye img tag (yeh self-closing tag hai):</p>
+            <img src="https://placeholder.com" alt="Placeholder Image" width="150" height="150">
+            <!-- src = image ka path, alt = agar image load na ho toh jo text dikhe -->
+
+            <!-- Audio Tag -->
+            <p>Audio chalane ke liye:</p>
+            <audio controls>
+                <source src="audio.mp3" type="audio/mpeg">
+                Aapka browser audio tag support nahi karta.
+            </audio>
+
+            <!-- Video Tag -->
+            <p>Video chalane ke liye:</p>
+            <video width="320" height="240" controls>
+                <source src="movie.mp4" type="video/mp4">
+                Aapka browser video tag support nahi karta.
+            </video>
+        </section>
+
+
+        <!-- SECTION: LISTS -->
+        <section id="list-tags">
+            <h2>4. Lists (Suchi)</h2>
+
+            <!-- Unordered List (Bullet points) -->
+            <p>Unordered List (ul):</p>
+            <ul>
+                <li>Aloo (li se list item banta hai)</li>
+                <li>Tamatar</li>
+                <li>Pyaaz</li>
+            </ul>
+
+            <!-- Ordered List (1, 2, 3...) -->
+            <p>Ordered List (ol):</p>
+            <ol>
+                <li>HTML Seekhein</li>
+                <li>CSS Seekhein</li>
+                <li>JavaScript Seekhein</li>
+            </ol>
+
+            <!-- Description List -->
+            <p>Description List (dl):</p>
+            <dl>
+                <dt>Coffee</dt> <!-- dt = term -->
+                <dd>- Black hot drink</dd> <!-- dd = description -->
+                <dt>Milk</dt>
+                <dd>- White cold drink</dd>
+            </dl>
+        </section>
+
+
+        <!-- SECTION: TABLES -->
+        <section id="table-tags">
+            <h2>5. Tables (Data Grid)</h2>
+            <table>
+                <caption>Student Data (Table Caption)</caption>
+                <thead>
+                    <!-- table head section -->
+                    <tr> <!-- tr = table row -->
+                        <th>Naam (th = heading)</th>
+                        <th>Class</th>
+                        <th>Roll No</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- table body section -->
+                    <tr>
+                        <td>Rahul (td = cell data)</td>
+                        <td>10th</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td>Amit</td>
+                        <td>12th</td>
+                        <td>14</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <!-- table footer section -->
+                    <tr>
+                        <td colspan="3">Total Students: 2</td> 
+                        <!-- colspan se cells merge hote hain -->
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+
+        <!-- SECTION: FORMS & INPUTS -->
+        <section id="form-tags">
+            <h2>6. Forms (User Input)</h2>
+            <!-- form tag user se data lene ke liye use hota hai -->
+            <form action="/submit-form" method="POST">
+                
+                <!-- Text Input -->
+                <label for="username">User Name:</label><br>
+                <input type="text" id="username" name="username" placeholder="Apna naam likhein" required><br><br>
+
+                <!-- Password Input -->
+                <label for="pwd">Password:</label><br>
+                <input type="password" id="pwd" name="pwd"><br><br>
+
+                <!-- Number Input -->
+                <label for="age">Umar (Age):</label><br>
+                <input type="number" id="age" name="age" min="18" max="100"><br><br>
+
+                <!-- Radio Buttons (Sirf ek select karne ke liye) -->
+                <p>Gender:</p>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label><br><br>
+
+                <!-- Checkboxes (Multiple select karne ke liye) -->
+                <p>Hobbies:</p>
+                <input type="checkbox" id="coding" name="hobby" value="coding">
+                <label for="coding">Coding</label>
+                <input type="checkbox" id="sports" name="hobby" value="sports">
+                <label for="sports">Sports</label><br><br>
+
+                <!-- Dropdown Select Menu -->
+                <label for="city">City Chunein:</label>
+                <select id="city" name="city">
+                    <option value="delhi">Delhi</option>
+                    <option value="mumbai">Mumbai</option>
+                    <option value="kolkata">Kolkata</option>
+                </select><br><br>
+
+                <!-- Large Text Area -->
+                <label for="feedback">Feedback:</label><br>
+                <textarea id="feedback" name="feedback" rows="4" cols="30"></br><br>
+
+                <!-- Submit Button -->
+                <button type="submit">Submit Karein</button>
+                <!-- Reset Button -->
+                <button type="reset">Clear Karein</button>
+            </form>
+        </section>
+
+
+        <!-- SECTION: STRUCTURAL / CONTAINER TAGS -->
+        <section>
+            <h2>7. Container & Block Tags (Div and Span)</h2>
+            
+            <!-- div block-level element hai, yeh puri width leta hai -->
+            <div style="background-color: lightgray; padding: 10px;">
+                <p>Yeh ek div block hai. Iske andar multiple elements ho sakte hain.</p>
