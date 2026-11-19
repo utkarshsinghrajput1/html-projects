@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <title>Lumen Library — Welcome</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body class="login-page">
+  <div class="login-orb orb-one"></div><div class="login-orb orb-two"></div>
+  <main class="login-layout">
+    <section class="login-story">
+      <img class="library-photo login-library-photo" src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1200&q=85" alt="Library interior with bookshelves">
+      <a class="brand" href="index.html"><span class="brand-mark">✦</span><span>LUMEN<span class="brand-light"> LIBRARY</span></span></a>
+      <div class="story-copy">
+        <p class="eyebrow">A BETTER WAY TO STUDY</p>
+        <h1>Make room for<br><span>what matters.</span></h1>
+        <p class="story-description">A calmer, smarter campus library experience. Find your corner, reserve your seat, and get into your flow.</p>
+        <div class="story-points">
+          <div><span class="point-icon">⌁</span><span><b>Spaces that fit your focus</b><small>Quiet corners, labs and group rooms</small></span></div>
+          <div><span class="point-icon">◷</span><span><b>Your time, your schedule</b><small>Book the hours that work for you</small></span></div>
+          <div><span class="point-icon">✧</span><span><b>Everything in one place</b><small>Manage bookings and updates easily</small></span></div>
+        </div>
+      </div>
+      <p class="login-footnote">DESIGNED FOR CURIOSITY · BUILT FOR FOCUS</p>
+    </section>
+
+    <section class="login-card">
+      <div class="login-card-top"><span class="status-pulse"></span> CAMPUS ACCESS PORTAL</div>
+      <p class="eyebrow">WELCOME TO YOUR SPACE</p>
+      <h2>Sign in to begin.</h2>
+      <p class="muted">Enter your Student ID/Administrator ID and choose how you want to access the library.</p>
+      <form id="loginForm">
+        <label id="personNameLabel" for="personName">Enter your Student ID</label>
+        <input id="personName" type="text" maxlength="60" placeholder="e.g. 12628088" autocomplete="name" required>
+
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="Enter your password" autocomplete="current-password" required>
+
+        <label>Access type</label>
+        <div class="role-options">
+          <label class="role-option"><input type="radio" name="role" value="Student" checked><span class="role-symbol">⌂</span><span><b>Student</b><small>Reserve a study space</small></span></label>
+          <label class="role-option"><input type="radio" name="role" value="Administrator"><span class="role-symbol">◈</span><span><b>Administrator</b><small>Manage library activity</small></span></label>
+        </div>
+        <button class="button primary full" type="submit">Enter library <span>↗</span></button>
+      </form>
+      <div class="login-note"><span>ⓘ</span> Library Management System · Lumen Library.</div>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

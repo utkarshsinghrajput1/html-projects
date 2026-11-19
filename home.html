@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <title>Lumen Library — Workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body class="app-page">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="home.html"><span class="brand-mark">✦</span><span>LUMEN<span class="brand-light"> LIBRARY</span></span></a>
+    <div class="sidebar-label">WORKSPACE</div>
+    <nav class="side-nav" aria-label="Main navigation">
+      <button class="nav-link active" data-view="dashboard"><span>⌂</span> Overview</button>
+      <button class="nav-link" data-view="explore"><span>▦</span> Explore rooms</button>
+      <button class="nav-link" data-view="booking"><span>＋</span> Reserve a seat</button>
+      <button class="nav-link" data-view="mybookings"><span>◷</span> My bookings <i id="navBookingCount">0</i></button>
+      <button class="nav-link" data-view="gatepass"><span>▣</span> Gate pass</button>
+      <button class="nav-link" data-view="notifications"><span>♧</span> Notifications <i id="navNotificationCount">0</i></button>
+      <button class="nav-link admin-nav hidden" data-view="admin"><span>◈</span> Administration</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-tip"><span class="tip-icon">✧</span><b>A little focus goes a long way.</b><small>Make today count, one session at a time.</small></div>
+      <div class="sidebar-user"><span class="avatar" id="profileAvatar">L</span><span class="user-meta"><b id="profileName">Learner</b><small id="profileRole">Student</small></span><button class="icon-button" id="signOut" title="Sign out" aria-label="Sign out">↗</button></div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="mobile-topbar">
+      <button class="icon-button menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+      <a class="brand" href="home.html"><span class="brand-mark">✦</span><span>LUMEN</span></a>
+      <span class="mobile-avatar" id="mobileAvatar">L</span>
+    </header>
+    <header class="page-header">
+      <div><p class="eyebrow" id="headerEyebrow">YOUR CAMPUS, YOUR SPACE</p><h1 id="pageTitle">Good day. <span>Find your focus.</span></h1><p id="pageSubtitle">A little progress today adds up to something great.</p></div>
+      <div class="header-actions"><span class="date-chip" id="todayLabel">Today</span><button class="button primary" data-go="booking">＋ New reservation</button></div>
+    </header>
+
+    <section class="view active" id="view-dashboard">
+      <div class="welcome-banner">
+        <img class="library-photo welcome-library-photo" src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1200&q=85" alt="Library interior with bookshelves">
+        <div class="welcome-copy"><p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p><h2>Find a space that<br><em>works for you.</em></h2><p>From silent study corners to collaborative rooms, your next productive session is just a few clicks away.</p><button class="button light-button" data-go="explore">Explore spaces <span>↗</span></button></div>
+        <div class="banner-art"><div class="art-ring ring-a"></div><div class="art-ring ring-b"></div><div class="art-book">✧</div><span class="art-caption">SPACE TO THINK<br>ROOM TO GROW</span></div>
+      </div>
+
+      <div class="section-heading"><div><p class="eyebrow">YOUR LIBRARY AT A GLANCE</p><h2>Today, in numbers</h2></div><span class="live-label"><i></i> LIVE OVERVIEW</span></div>
+      <div class="stats-grid">
+        <article class="stat-card"><div class="stat-top"><span>Available seats</span><span class="stat-icon cyan-icon">▦</span></div><strong id="availableCount">0</strong><small>Across all rooms for your selected slot</small></article>
+        <article class="stat-card"><div class="stat-top"><span>My active bookings</span><span class="stat-icon violet-icon">◷</span></div><strong id="activeCount">0</strong><small>Your upcoming library sessions</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Study spaces</span><span class="stat-icon amber-icon">⌂</span></div><strong id="roomCount">8</strong><small>Different spaces to choose from</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Total capacity</span><span class="stat-icon green-icon">✧</span></div><strong id="totalCapacity">76</strong><small>Seats across the library</small></article>
+      </div>
+
+      <div class="dashboard-columns">
+        <section class="surface-panel">
+          <div class="section-heading compact"><div><p class="eyebrow">PICK YOUR ENVIRONMENT</p><h2>Popular spaces</h2></div><button class="text-link" data-go="explore">View all ↗</button></div>
+          <div class="room-feature-grid" id="featuredRooms"></div>
+        </section>
+        <section class="surface-panel upcoming-panel">
+          <div class="section-heading compact"><div><p class="eyebrow">KEEP YOUR DAY ON TRACK</p><h2>Coming up</h2></div><button class="text-link" data-go="mybookings">All bookings ↗</button></div>
+          <div id="upcomingList" class="upcoming-list"><p class="empty-state">Your next session will appear here.</p></div>
+        </section>
+      </div>
+      <section class="focus-sprint surface-panel">
+        <div class="focus-sprint-copy"><p class="eyebrow">A LITTLE CHALLENGE</p><h2>Focus Sprint <span>✦</span></h2><p>Try a 25-minute deep-focus session. One small sprint can make a big difference.</p><div class="sprint-stats"><span>25 MINUTES</span><span>·</span><span>5 MIN BREAK</span></div></div>
+        <div class="sprint-clock-wrap"><div class="sprint-clock" id="sprintClock">25:00</div><div class="sprint-controls"><button class="button primary" id="sprintStart">Start sprint</button><button class="button secondary" id="sprintReset">Reset</button></div><small id="sprintMessage">Ready when you are.</small></div>
+      </section>
+      <section class="quote-strip"><span>✦</span><p>“The secret of getting ahead is getting started.”</p><small>— MARK TWAIN</small></section>
+    </section>
+
+    <section class="view" id="view-explore">
+      <div class="view-intro"><div><p class="eyebrow">FIND YOUR PERFECT CORNER</p><h2>Explore library spaces</h2><p>Browse by atmosphere, capacity or the way you like to work.</p></div><div class="room-total"><b>08</b><span>SPACES AVAILABLE</span></div></div>
+      <div class="filter-bar">
+        <div class="search-wrap"><span>⌕</span><input id="roomSearch" type="search" placeholder="Search rooms..." aria-label="Search rooms"></div>
+        <select id="roomFilter" aria-label="Filter by room type"><option value="all">All spaces</option><option value="quiet">Quiet study</option><option value="collaborative">Collaborative</option><option value="technology">Technology</option></select>
+        <select id="capacityFilter" aria-label="Filter by capacity"><option value="all">Any capacity</option><option value="small">Up to 8 seats</option><option value="medium">9–12 seats</option><option value="large">13+ seats</option></select>
+        <select id="sortRooms" aria-label="Sort rooms"><option value="featured">Featured</option><option value="name">Name: A–Z</option><option value="capacity">Capacity: high to low</option></select>
+      </div>
+      <div class="room-grid" id="allRooms"></div>
+      <p class="empty-state hidden" id="noRooms">No spaces match those filters. Try another search.</p>
+    </section>
+
+    <section class="view" id="view-booking">
+      <div class="view-intro"><div><p class="eyebrow">MAKE IT YOURS</p><h2>Reserve your study seat</h2><p>Choose a room, find an available seat and set aside time for focused work.</p></div><div class="booking-hours"><span>◷</span><span><b>Library hours</b><small>9:00 AM – 10:00 PM</small></span></div></div>
+      <div class="booking-layout">
+        <section class="surface-panel booking-form-panel">
+          <div class="section-heading compact"><div><p class="eyebrow">STEP 01 / YOUR SESSION</p><h3>Choose your setup</h3></div><span class="step-number">01</span></div>
+          <div class="form-grid">
+            <div class="field full-field"><label for="roomSelect">Library space</label><select id="roomSelect"></select></div>
+            <div class="field"><label for="bookingDate">Date</label><input type="date" id="bookingDate"></div>
+            <div class="field"><label for="startHour">Start time</label><select id="startHour"></select></div>
+            <div class="field"><label for="gateSelect">Entry gate</label><select id="gateSelect"><option value="Gate 1">Gate 1</option><option value="Gate 2">Gate 2</option><option value="Gate 3">Gate 3</option><option value="Gate 4">Gate 4</option><option value="Gate 5">Gate 5</option><option value="Gate 6">Gate 6</option><option value="Gate 7">Gate 7</option></select></div>
+            <div class="field"><label for="duration">Duration</label><select id="duration"><option value="1">1 hour</option><option value="2">2 hours</option><option value="3">3 hours</option><option value="4">4 hours</option><option value="5">5 hours</option><option value="6">6 hours</option><option value="7">7 hours</option><option value="8">8 hours</option><option value="9">9 hours</option><option value="10">10 hours</option><option value="11">11 hours</option><option value="12">12 hours</option><option value="13">13 hours</option></select></div>
+          </div>
+          <div class="booking-divider"></div>
+          <div class="section-heading compact"><div><p class="eyebrow">STEP 02 / YOUR SEAT</p><h3>Select an available seat</h3></div><span class="step-number">02</span></div>
+          <div class="seat-legend"><span><i class="legend-dot available"></i>Available</span><span><i class="legend-dot selected"></i>Selected</span><span><i class="legend-dot occupied"></i>Booked</span></div>
+          <div class="seat-stage"><span class="stage-label">✧ FRONT / DISPLAY</span><div class="seat-map" id="seatMap"></div><span class="stage-foot">Choose any available seat to continue</span></div>
+          <div class="booking-summary" id="bookingSummary"><span class="summary-icon">✦</span><span><b>No seat selected</b><small>Your booking summary will appear here.</small></span></div>
+          <button class="button primary full" id="bookButton" type="button">Confirm reservation <span>↗</span></button>
+          <p class="form-footnote">You can cancel an active reservation from My bookings.</p>
+        </section>
+        <aside class="booking-aside">
+          <div class="surface-panel selected-room-card"><div class="room-preview-art" id="selectedRoomArt"><span>✧</span></div><p class="eyebrow">YOUR SELECTED SPACE</p><h3 id="selectedRoomName">Quiet Zone</h3><p id="selectedRoomDescription">A calm corner for uninterrupted focus.</p><div class="room-quick-facts"><span><b id="seatCountLabel">12</b><small>SEATS</small></span><span><b id="availableRoomCount">12</b><small>AVAILABLE</small></span><span><b id="roomTypeLabel">QUIET</b><small>TYPE</small></span></div></div>
+          <div class="surface-panel note-panel"><span class="note-icon">ⓘ</span><div><b>Before you reserve</b><p>Bookings must start in the future and finish by 10 PM. A seat cannot be double-booked, and you can only hold one overlapping session.</p></div></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="view" id="view-mybookings">
+      <div class="view-intro"><div><p class="eyebrow">YOUR STUDY SCHEDULE</p><h2>My bookings</h2><p>Keep track of your upcoming sessions and past reservations.</p></div></div>
+      <div class="booking-tabs"><button class="booking-tab active" data-booking-filter="all">All <span id="allBookingCount">0</span></button><button class="booking-tab" data-booking-filter="Active">Active <span id="activeBookingCount">0</span></button><button class="booking-tab" data-booking-filter="Cancelled">Cancelled <span id="cancelledBookingCount">0</span></button></div>
+      <div class="surface-panel"><div id="bookingList" class="booking-list"></div><div class="list-footer"><button class="text-link danger-link" id="clearHistory">Clear cancelled bookings</button></div></div>
+    </section>
+
+    <section class="view" id="view-gatepass">
+      <div class="view-intro"><div><p class="eyebrow">CAMPUS ENTRY, MADE SIMPLE</p><h2>Your digital gate pass</h2><p>Choose an active reservation to view its QR pass and live booking timer.</p></div><span class="admin-tag">7 CAMPUS GATES</span></div>
+      <div class="gatepass-layout">
+        <section class="surface-panel gatepass-card">
+          <div class="gatepass-top"><span class="gatepass-emblem">✦</span><span><b>LUMEN LIBRARY</b><small>STUDENT ENTRY PASS</small></span><span class="gatepass-state" id="passState">NO PASS</span></div>
+          <div class="gatepass-main"><div><p class="eyebrow">SELECT RESERVATION</p><select id="passBookingSelect"><option value="">No active bookings found</option></select><div class="pass-detail-grid"><div><small>STUDENT</small><b id="passStudent">—</b></div><div><small>ENTRY GATE</small><b id="passGate">—</b></div><div><small>DATE</small><b id="passDate">—</b></div><div><small>TIME SLOT</small><b id="passTime">—</b></div><div><small>ROOM / SEAT</small><b id="passRoom">—</b></div><div><small>PASS ID</small><b id="passId">—</b></div></div></div>
+            <div class="qr-panel"><div id="passQr"><span>QR CODE</span></div><small>Show this code at your selected gate</small></div></div>
+          <div class="pass-timer"><span class="timer-icon">◷</span><div><small id="timerCaption">BOOKING COUNTDOWN</small><strong id="bookingTimer">Select a booking</strong><p id="timerSubtext">Your pass activates 15 minutes before your reservation.</p></div></div>
+          <div class="gatepass-foot"><span>✧ Keep this pass ready before arriving at the gate.</span><span>DEMO PASS · NOT OFFICIAL CAMPUS ACCESS</span></div>
+        </section>
+        <aside class="gate-tools">
+          <section class="surface-panel scanner-panel"><p class="eyebrow">GATE VERIFICATION · DEMO MODE</p><h3>Try a gate check</h3><p>No camera or physical scanner is used. This demo previews how a gate attendant would verify the selected digital pass.</p><label for="scannerGate">Demo entry gate</label><select id="scannerGate"><option value="Gate 1">Gate 1</option><option value="Gate 2">Gate 2</option><option value="Gate 3">Gate 3</option><option value="Gate 4">Gate 4</option><option value="Gate 5">Gate 5</option><option value="Gate 6">Gate 6</option><option value="Gate 7">Gate 7</option></select><button class="button primary full" id="simulateGateCheck" style="margin-top:12px">Simulate gate verification</button><div class="scan-result" id="scanResult" role="status">Choose a pass and gate, then run the demo verification.</div><p class="demo-note">DEMO ONLY · No real entry is authorized or recorded.</p></section>
+          <section class="surface-panel gate-list-panel"><p class="eyebrow">ENTRY POINTS</p><h3>Seven gates</h3><div class="gate-list"><span>01 <b>Gate 1</b></span><span>02 <b>Gate 2</b></span><span>03 <b>Gate 3</b></span><span>04 <b>Gate 4</b></span><span>05 <b>Gate 5</b></span><span>06 <b>Gate 6</b></span><span>07 <b>Gate 7</b></span></div></section>
+        </aside>
+      </div>
+    </section>
+
+    <section class="view" id="view-notifications">
+      <div class="view-intro"><div><p class="eyebrow">STAY IN THE LOOP</p><h2>Notifications</h2><p>Updates and reminders about your library activity.</p></div><button class="button secondary" id="clearNotifications">Clear all</button></div>
+      <div class="surface-panel"><div id="notificationList" class="notification-list"></div></div>
+    </section>
+
+    <section class="view" id="view-admin">
+      <div class="view-intro"><div><p class="eyebrow">LIBRARY CONTROL CENTER</p><h2>Administration</h2><p>A snapshot of reservations stored in this browser.</p></div><span class="admin-tag">DEMO ADMIN VIEW</span></div>
+      <div class="stats-grid admin-stats"><article class="stat-card"><div class="stat-top"><span>Total bookings</span><span class="stat-icon cyan-icon">▦</span></div><strong id="adminTotal">0</strong><small>All recorded reservations</small></article><article class="stat-card"><div class="stat-top"><span>Active bookings</span><span class="stat-icon green-icon">◷</span></div><strong id="adminActive">0</strong><small>Currently active records</small></article><article class="stat-card"><div class="stat-top"><span>Cancelled</span><span class="stat-icon amber-icon">↶</span></div><strong id="adminCancelled">0</strong><small>Cancelled records</small></article><article class="stat-card"><div class="stat-top"><span>Students</span><span class="stat-icon violet-icon">♧</span></div><strong id="adminStudents">0</strong><small>Unique student profiles</small></article></div>
+      <div class="surface-panel"><div class="section-heading compact"><div><p class="eyebrow">CAMPUS ACTIVITY</p><h3>All reservations</h3></div><input class="admin-search" id="adminSearch" type="search" placeholder="Search student or room"></div><div id="adminBookingList" class="booking-list"></div></div>
+      <p class="security-note">This is a front-end demonstration. Role selection is not secure authentication, and browser localStorage is not a shared or protected database.</p>
+    </section>
+
+    <footer class="app-footer"><span>✦ LUMEN LIBRARY</span><span>MAKE SPACE FOR GREATNESS · 2026</span></footer>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
